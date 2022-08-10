@@ -48,6 +48,7 @@ class DashboardService:
         self.import_dashboard("Prometheus", folder_id, "prometheus", "jvm-micrometer_rev9.json")
         self.import_dashboard("Prometheus", folder_id, "prometheus", "go-processes_rev2.json")
         self.import_dashboard("Prometheus", folder_id, "prometheus", "pulsar-functions-by-prometheus.json")
+        self.import_dashboard("Prometheus", folder_id, "prometheus", "loki2-0-global-metrics_rev1.json")
 
     def init_es_dashboard(self):
         print("init es dashboard")
