@@ -30,6 +30,7 @@ class DataSourceService:
         self.init_elasticsearch()
         self.init_influxdb()
         self.init_loki()
+        self.init_tempo()
 
     @staticmethod
     def init_prometheus():
@@ -66,6 +67,16 @@ class DataSourceService:
         print("begin to init loki")
         dumps = json.dumps(
             {"name": "Loki", "type": "loki", "url": "http://" + Const.loki_host + ":3100",
+             "access": "proxy"})
+        body = dumps.encode(encoding='utf-8')
+        f = request.urlopen(GrafanaReqUtil.new_datasource_post_req(), body)
+        print(f.status)
+
+    @staticmethod
+    def init_tempo():
+        print("begin to init tempo")
+        dumps = json.dumps(
+            {"name": "Tempo", "type": "tempo", "url": "http://" + Const.tempo_host + ":3200",
              "access": "proxy"})
         body = dumps.encode(encoding='utf-8')
         f = request.urlopen(GrafanaReqUtil.new_datasource_post_req(), body)

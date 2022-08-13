@@ -25,6 +25,7 @@ var_prom_host = os.getenv("PROM_HOST")
 var_es_host = os.getenv("ES_HOST")
 var_influx1_host = os.getenv("INFLUX1_HOST")
 var_loki_host = os.getenv("LOKI_HOST")
+var_tempo_host = os.getenv("TEMPO_HOST")
 
 if var_grafana_host is None:
     var_grafana_host = "localhost"
@@ -38,6 +39,8 @@ if var_influx1_host is None:
     var_influx1_host = "localhost"
 if var_loki_host is None:
     var_loki_host = "localhost"
+if var_tempo_host is None:
+    var_tempo_host = "localhost"
 
 
 class Const:
@@ -47,6 +50,7 @@ class Const:
     es_host = var_es_host
     influx1_host = var_influx1_host
     loki_host = var_loki_host
+    tempo_host = var_tempo_host
     username = "admin"
     password = "grafana_pwd"
     old_password = "admin"
