@@ -33,6 +33,7 @@ class DashboardService:
         self.init_influx_dashboard()
         self.init_loki_dashboard()
         self.init_tempo_dashboard()
+        self.init_jaeger_dashboard()
 
     def init_prom_dashboard(self):
         print("init prom dashboard")
@@ -66,6 +67,10 @@ class DashboardService:
     def init_tempo_dashboard(self):
         print("init tempo dashboard")
         folder_id = self.create_folder("Tempo")
+
+    def init_jaeger_dashboard(self):
+        print("init jaeger dashboard")
+        folder_id = self.create_folder("Jaeger")
 
     @staticmethod
     def create_folder(title):

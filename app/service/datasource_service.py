@@ -31,6 +31,7 @@ class DataSourceService:
         self.init_influxdb()
         self.init_loki()
         self.init_tempo()
+        self.init_jaeger()
 
     @staticmethod
     def init_prometheus():
@@ -78,6 +79,16 @@ class DataSourceService:
         dumps = json.dumps(
             {"name": "Tempo", "type": "tempo", "url": "http://" + Const.tempo_host + ":3200",
              "access": "proxy"})
+        body = dumps.encode(encoding='utf-8')
+        f = request.urlopen(GrafanaReqUtil.new_datasource_post_req(), body)
+        print(f.status)
+
+    @staticmethod
+    def init_jaeger():
+        print("begin to init jaeger")
+        dumps = json.dumps(
+            {"name": "Jaeger", "type": "jaeger", "url": "http://" + Const.jaeger_host + ":16686",
+            "access": "proxy"})
         body = dumps.encode(encoding='utf-8')
         f = request.urlopen(GrafanaReqUtil.new_datasource_post_req(), body)
         print(f.status)
