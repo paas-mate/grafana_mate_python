@@ -27,6 +27,17 @@ else:
 GRAFANA_CONF = GRAFANA_CONF_DIR + "grafana.ini"
 
 with open(GRAFANA_CONF, "a") as file:
+    auth_enabled = os.getenv("AUTH_ENABLED")
+    if auth_enabled is None:
+        file.write("enabled = true\n")
+        file.write("org_name = Main Org.\n")
+        file.write("org_role = Admin\n")
+        file.write("hide_version = false\n")
+    else:
+        file.write("enabled = false\n")
+        file.write("org_name = Main Org.\n")
+        file.write("org_role = Viewer\n")
+        file.write("hide_version = false\n")
     smtp_enabled = os.getenv("GRAFANA_SMTP_ENABLED")
     if smtp_enabled is None:
         exit()
