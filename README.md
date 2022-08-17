@@ -1,4 +1,7 @@
 # grafana_mate
+## env
+### AUTH_ENABLED
+default value is false
 
 > quickly deploy grafana.
 

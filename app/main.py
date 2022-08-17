@@ -38,8 +38,10 @@ if platform == "linux":
 time.sleep(30)
 
 # password
-account_service = AccountService()
-account_service.init_password()
+auth_enabled = os.getenv("AUTH_ENABLED")
+if auth_enabled is not None:
+    account_service = AccountService()
+    account_service.init_password()
 
 # datasource
 data_source_service = DataSourceService()
