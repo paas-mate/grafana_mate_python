@@ -683,7 +683,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "packets_received{instance=~\"$instance\",job=~\"$job\"}",
+          "expr": "rate(packets_received{instance=~\"$instance\",job=~\"$job\"}[1m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} packets_received",
@@ -694,7 +694,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "packets_received",
+      "title": "packets_received_rate",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -769,7 +769,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "packets_sent{instance=~\"$instance\",job=~\"$job\"}",
+          "expr": "rate(packets_sent{instance=~\"$instance\",job=~\"$job\"}[1m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} packets_sent",
@@ -780,7 +780,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "packets_sent",
+      "title": "packets_sent_rate",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -2061,7 +2061,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "commit_count{instance=~\"$instance\",job=~\"$job\"}",
+              "expr": "rate(commit_count{instance=~\"$instance\",job=~\"$job\"}[1m])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{instance}} commit_count",
@@ -2072,7 +2072,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "commit_count",
+          "title": "commit_rate",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -2405,7 +2405,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "proposal_count{instance=~\"$instance\",job=~\"$job\"}",
+              "expr": "rate(proposal_count{instance=~\"$instance\",job=~\"$job\"}[1m])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{instance}} proposal_count",
@@ -2416,7 +2416,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "proposal_count",
+          "title": "proposal_rate",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -3042,7 +3042,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_changed_watch_count_sum{instance=~\"$instance\",job=~\"$job\"}",
+              "expr": "rate(node_changed_watch_count_sum{instance=~\"$instance\",job=~\"$job\"}[1m])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{instance}} node_changed_watch_count",
@@ -3053,7 +3053,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "node_changed_watch_count",
+          "title": "node_changed_watch_rate",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -3214,7 +3214,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_deleted_watch_count_sum{instance=~\"$instance\",job=~\"$job\"}",
+              "expr": "rate(node_deleted_watch_count_sum{instance=~\"$instance\",job=~\"$job\"}[1m])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{instance}} node_deleted_watch_count",
@@ -3225,7 +3225,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "node_deleted_watch_count",
+          "title": "node_deleted_watch_rate",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -3300,7 +3300,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_created_watch_count_sum{instance=~\"$instance\",job=~\"$job\"}",
+              "expr": "rate(node_created_watch_count_sum{instance=~\"$instance\",job=~\"$job\"}[1m])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{instance}} node_created_watch_count",
@@ -3311,7 +3311,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "node_created_watch_count",
+          "title": "node_created_watch_rate",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -3944,7 +3944,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "bytes_received_count{instance=~\"$instance\",job=~\"$job\"}",
+              "expr": "rate(bytes_received_count{instance=~\"$instance\",job=~\"$job\"}[1m])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{instance}} bytes_received_count",
@@ -3955,7 +3955,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "bytes_received_count",
+          "title": "bytes_received_rate",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -5205,7 +5205,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "prep_processor_request_queued{instance=~\"$instance\",job=~\"$job\"}",
+          "expr": "rate(prep_processor_request_queued{instance=~\"$instance\",job=~\"$job\"}[1m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} prep_processor_request_queued",
@@ -5291,7 +5291,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "outstanding_changes_queued{instance=~\"$instance\",job=~\"$job\"}",
+          "expr": "rate(outstanding_changes_queued{instance=~\"$instance\",job=~\"$job\"}[1m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} outstanding_changes_queued",
