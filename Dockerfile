@@ -19,8 +19,8 @@
 
 FROM ttbb/grafana:nake
 
-COPY . /opt/sh/grafana/mate
+COPY . /opt/grafana/mate
 
-WORKDIR /opt/sh/grafana
+WORKDIR /opt/grafana
 
-CMD ["/usr/bin/dumb-init", "bash", "-vx", "/opt/sh/grafana/mate/scripts/start.sh"]
+CMD ["/usr/bin/dumb-init", "bash", "-vx", "/opt/grafana/mate/scripts/start.sh"]
