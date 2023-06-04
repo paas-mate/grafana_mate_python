@@ -26,7 +26,10 @@ from app.service.grafana_req_util import GrafanaReqUtil
 
 class DataSourceService:
     def init_datasource(self):
-        self.init_prometheus()
+        try:
+            self.init_prometheus()
+        except Exception as e:
+            print("error init prometheus dashboard: ", e)
         self.init_elasticsearch()
         self.init_influxdb()
         self.init_loki()
