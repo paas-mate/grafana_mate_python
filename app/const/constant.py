@@ -32,6 +32,8 @@ if var_grafana_host is None:
     var_grafana_host = "localhost"
 if var_grafana_port is None:
     var_grafana_port = "3000"
+if not var_grafana_port.isnumeric():
+    var_grafana_port = "3000"
 if var_prom_host is None:
     var_prom_host = "localhost"
 if var_es_host is None:
